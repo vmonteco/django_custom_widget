@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url "main:picture_create" %}">create</a>
+
+<ul>
+  {% for picture in object_list %}
+  <li>
+	<a href="{{ picture.get_absolute_url }}">{{ picture }}</a>
+  </li>
+  {% empty %}
+  No picture yet.
+  {% endfor %}
+</ul>
+{% endblock %}

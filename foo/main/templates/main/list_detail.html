@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ object.name }}</h2>
+<a href="{% url "main:list_update" pk=object.pk %}">update</a>
+<a href="{% url "main:list_delete" pk=object.pk %}">delete</a>
+<ul>
+  {% for img in object.imgs.all %}
+  <li>
+	<a href="{{ img.get_absolute_url }}">{{ img.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

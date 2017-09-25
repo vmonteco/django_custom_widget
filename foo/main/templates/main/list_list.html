@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url "main:list_create" %}" %}">create</a>
+
+<ul>
+  {% for list in object_list %}
+  <li>
+	<a href="{{ list.get_absolute_url }}">{{ list }}</a>
+  </li>
+  {% empty %}
+  No list yet.
+  {% endfor %}
+</ul>
+{% endblock %}
